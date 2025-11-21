@@ -60,10 +60,10 @@ export default function App() {
         <UploadForm file={file} setFile={setFile} onUseSample={useSample} />
         <RuleInputs rules={rules} setRules={setRules} />
         <div className="flex gap-2">
-          <button onClick={submit} disabled={loading} className="px-4 py-2 bg-green-600 text-white rounded">
+          <button onClick={submit} disabled={loading} className="px-4 py-2 bg-green-600 text-white rounded cursor-pointer">
             {loading ? `Checking... ${progress}%` : "Check Document"}
           </button>
-          <button onClick={() => { setFile(null); setResults(null); setRules(["","",""]); }} className="px-3 py-2 bg-gray-200 rounded">
+          <button onClick={() => { setFile(null); setResults(null); setRules(["","",""]); }} className="px-3 py-2 bg-gray-200 rounded cursor-pointer.">
             Reset
           </button>
         </div>
