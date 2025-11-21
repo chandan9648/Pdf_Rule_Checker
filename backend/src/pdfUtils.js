@@ -1,7 +1,7 @@
 // pdfUtils.js
 import fs from "fs";
 import path from "path";
-import { getDocument } from "pdfjs-dist";
+import { getDocument } from "pdf-parse";
 import { TextDecoder } from "util";
 
 // pdfjs-dist expects a Node-compatible fetch; getDocument accepts file path in Node

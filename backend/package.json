@@ -2,6 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
@@ -18,6 +19,7 @@
     "mongoose": "^8.20.1",
     "multer": "^2.0.2",
     "openai": "^6.9.1",
+    "pdf-parse": "^2.4.5",
     "pdfjs-dist": "^5.4.394",
     "sanitize-filename": "^1.6.3"
   }
