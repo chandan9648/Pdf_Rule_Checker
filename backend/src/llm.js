@@ -2,11 +2,18 @@
 import OpenAI from "openai";
 import { safeJsonParse } from "./helpers.js";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
+function getOpenAIClient() {
+  const key = process.env.OPENAI_API_KEY;
+  if (!key) return null;
+  return new OpenAI({ apiKey: key });
+}
 
 export async function askModelForRuleEval(modelName, rule, pages, localEvidence) {
+  const openai = getOpenAIClient();
+  if (!openai) {
+    // No API key configured — gracefully skip model call
+    return null;
+  }
   // Build prompt that asks for JSON-only output
   const pagesText = pages.map(p => `[Page ${p.page}]\n${p.text}`).join("\n\n");
   const prompt = `
